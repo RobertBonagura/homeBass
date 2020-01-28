@@ -24,6 +24,7 @@ class Login extends React.Component {
 
     handleSubmit(event){
         // call function to check database for user and to see if password matches.
+        
         // Assuming to matches:
         this.setState({loggedin: true});
     }

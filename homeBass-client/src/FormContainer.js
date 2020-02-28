@@ -1,71 +1,38 @@
-import React, {Component} from 'react';  
+import React from "react";
+import Input from "./Input.js";
 
-/* Import Components */
-//import CheckBox from './CheckBox';
-import Input from './Input.js';  
-//import TextArea from './TextArea';  
-//import Select from './Select';
-//import Button from './Button'
+class FormContainer extends React.Component {
+    constructor(props){
+        super(props);
+        console.log(this.props);
+        this.state = {value: ''};
 
-class FormContainer extends Component {  
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      newUser: {
-        name: '',
-        email: '',
-        age: '',
-        gender: '',
-        expertise: '',
-        about: ''
-
-      },
-
-      genderOptions: ['Male', 'Female', 'Others'],
-      skillOptions: ['Programming', 'Development', 'Design', 'Testing']
-
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
-    this.handleFullName = this.handleFullName.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.handleClearForm = this.handleClearForm.bind(this);
-  }
 
-  /* This life cycle hook gets executed when the component mounts */
+    handleFormSubmit(event) {
+        this.setState(state => ({
+            value : "foofoo"
+        }))
+    }
 
-  handleFormSubmit() {
-    // Form submission logic
-  }
-  handleClearForm() {
-    // Logic for resetting the form
-  }
-  handleFullName(e) {
-    let value = e.target.value;
-    this.setState( prevState => ({ newUser :
-        {...prevState.newUser, name: value
-        }
-      }))
-   }
-  render() {
-    return (
-      <form className="container" onSubmit={this.handleFormSubmit}>
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
 
-        <Input type={'text'}
-               title= {'Full Name'} 
-               name= {'name'}
-               value={this.state.newUser.name} 
-               placeholder = {'Enter your name'}
-               handleChange = {this.handleFullName}
-               /> {/* Name of the user */}
-        //<Input /> {/* Input for Age */}
-        //<Select /> {/* Gender Selection */}
-        //<CheckBox /> {/* List of Skills (eg. Programmer, developer) */}
-        //<TextArea /> {/* About you */}
-        //<Button /> { /*Submit */ }
-    //<Button /> {/* Clear the form */}
-    </form>
-    );
-  }
+    render() {
+        return (
+          <form className="container" onSubmit={this.handleFormSubmit}>
+              <Input title="First Name:"
+                    name="name"
+                    type="text"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                    placeholder="Enter your first name here"/>
+              <input type="submit" value="Submit" />
+          </form>
+        );
+      }
 }
-
 export default FormContainer;

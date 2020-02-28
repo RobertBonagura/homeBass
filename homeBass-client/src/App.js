@@ -1,5 +1,5 @@
 import React from "react";
-import FormContainer from './FormContainer.js'
+import FormContainer from "./FormContainer.js";
 
 class App extends React.Component {
 
@@ -8,7 +8,7 @@ class App extends React.Component {
       <div className="container">
         <h3>React Form</h3>
         <FormContainer />
-      </div>
+     </div>
     );
   }
 }

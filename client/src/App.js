@@ -1,13 +1,12 @@
 import React from "react";
-import FormContainer from "./FormContainer.js";
+import LoginForm from "./LoginForm.js";
 
 class App extends React.Component {
 
   render() {
     return (
       <div className="container">
-        <h3>React Form</h3>
-        <FormContainer />
+        <LoginForm />
      </div>
     );
   }

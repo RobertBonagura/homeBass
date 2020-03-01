@@ -12,9 +12,7 @@ class FormContainer extends React.Component {
     }
 
     handleFormSubmit(event) {
-        this.setState(state => ({
-            value : "foofoo"
-        }))
+    
     }
 
     handleChange(event) {

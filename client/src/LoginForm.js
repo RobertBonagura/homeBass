@@ -21,7 +21,7 @@ class FormContainer extends React.Component {
 
     render() {
         return (
-          <form className="container" onSubmit={this.handleFormSubmit}>
+          <form className="form" onSubmit={this.handleFormSubmit}>
             <h1>Welcome</h1>
             <h3>Please Login</h3>
             <Input title="Username:"
@@ -36,7 +36,7 @@ class FormContainer extends React.Component {
               value={this.state.value}
               onChange={this.handleChange}
               placeholder="Enter your first name here"/>
-            <input type="submit" value="Submit" />
+            <input className="button" type="submit" value="Submit" />
         </form>
         );
       }

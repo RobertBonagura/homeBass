@@ -1,13 +1,27 @@
 .container {
+    position: absolute;
+    background-color: #70A7B3;
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    padding: 10px;
+}
+
+.form {
     background-color: peachpuff;
+    width: 80%;
+    max-width: 350px;
     border-radius: 10px;
     text-align: center;
-    padding-top: 1px;
-    padding-bottom: 10px;
+    margin: auto;
+    padding: 10px;
 }
 
 .button {
-    margin-top: 10px;
+    margin: 10px;
 }
 
 .form-input {

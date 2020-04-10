@@ -22,7 +22,6 @@ class FormContainer extends React.Component {
     render() {
         return (
           <form className="form" onSubmit={this.handleFormSubmit}>
-            <h1>Welcome</h1>
             <h3>Please Login</h3>
             <Input title="Username:"
               name="name"

@@ -6,6 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
+        <h1 className="title">Welcome!</h1>
         <LoginForm />
      </div>
     );

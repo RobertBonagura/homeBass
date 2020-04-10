@@ -29,13 +29,13 @@ class FormContainer extends React.Component {
               type="text"
               value={this.state.value}
               onChange={this.handleChange}
-              placeholder="Enter your first name here"/>
+              placeholder="Enter your username here"/>
             <Input title="Password:"
               name="name"
               type="text"
               value={this.state.value}
               onChange={this.handleChange}
-              placeholder="Enter your first name here"/>
+              placeholder="Enter your password here"/>
             <input className="button" type="submit" value="Submit" />
         </form>
         );

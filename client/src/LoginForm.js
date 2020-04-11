@@ -5,14 +5,29 @@ class FormContainer extends React.Component {
     constructor(props){
         super(props);
         console.log(this.props);
-        this.state = {username: '', password: ''};
+        this.state = {username: '', pass: ''};
 
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleFormSubmit(event) {
-    
+    async handleFormSubmit(event) {
+      event.preventDefault();
+      try {
+        const data = {
+          username: this.state.username, 
+          pass: this.state.pass
+        };
+        const request = await fetch("http://localhost:5000/users", {
+          method: "post",
+          headers: {"content-type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        const response = await request.json();
+        console.log(response);
+      } catch (err) {
+        console.error(err.message);
+      }
     }
 
     handleChange(event) {
@@ -32,9 +47,9 @@ class FormContainer extends React.Component {
               onChange={this.handleChange}
               placeholder="Enter your username here"/>
             <Input title="Password:"
-              name="password"
+              name="pass"
               type="text"
-              value={this.state.password}
+              value={this.state.pass}
               onChange={this.handleChange}
               placeholder="Enter your password here"/>
             <input className="button" type="submit" value="Submit" />

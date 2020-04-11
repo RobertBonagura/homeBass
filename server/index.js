@@ -41,6 +41,16 @@ app.post("/users", async(req,res) => {
 
 //get all users
 
+app.get("/users", async(req, res) => {
+    try {
+        const allUsers = await pool.query("SELECT * FROM musician");
+        res.json(allUsers);
+        console.log("Succesfully received all users\n" + JSON.stringify(allUsers.rows));
+    } catch (error) {
+      console.error(error.message);  
+    }
+})
+
 //get a user
 
 //update a user

@@ -40,7 +40,6 @@ app.post("/users", async(req,res) => {
 });
 
 //get all users
-
 app.get("/users", async(req, res) => {
     try {
         const allUsers = await pool.query("SELECT * FROM musician");
@@ -52,7 +51,6 @@ app.get("/users", async(req, res) => {
 })
 
 //get a user
-
 app.get("/users/:id", async(req,res) =>{
     try {
         const {id} = req.params;
@@ -65,7 +63,6 @@ app.get("/users/:id", async(req,res) =>{
 })
 
 //update a user
-
 app.put("/users/:id", async(req,res) => {
    try {
       const {id} = req.params;
@@ -77,8 +74,7 @@ app.put("/users/:id", async(req,res) => {
    } catch (error) {
       console.error(error.message); 
    } 
-}
-)
+})
 
 //delete a user
 app.delete("/users/:id", async(req,res) => {

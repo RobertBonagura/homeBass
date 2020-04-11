@@ -53,6 +53,17 @@ app.get("/users", async(req, res) => {
 
 //get a user
 
+app.get("/users/:id", async(req,res) =>{
+    try {
+        console.log(req.params);
+        const {username} = req.params;
+        const user = await pool.query("SELECT * FROM  musician WHERE username = $1",[username]);
+        res.json(user.rows[0]);
+    } catch (error) {
+        console.error(error.message);
+    }
+})
+
 //update a user
 
 //delete a user

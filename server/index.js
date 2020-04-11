@@ -55,10 +55,10 @@ app.get("/users", async(req, res) => {
 
 app.get("/users/:id", async(req,res) =>{
     try {
-        console.log(req.params);
-        const {username} = req.params;
-        const user = await pool.query("SELECT * FROM  musician WHERE username = $1",[username]);
+        const {id} = req.params;
+        const user = await pool.query("SELECT * FROM  musician WHERE username = $1",[id]);
         res.json(user.rows[0]);
+        console.log(user.rows[0]);
     } catch (error) {
         console.error(error.message);
     }
@@ -66,7 +66,32 @@ app.get("/users/:id", async(req,res) =>{
 
 //update a user
 
+app.put("/users/:id", async(req,res) => {
+   try {
+      const {id} = req.params;
+      const {username, pass} = req.body;
+      const updateUser = await pool.query("UPDATE musician SET username = $1, pass = $2 WHERE username = $3",
+        [username, pass, id]
+      );
+      res.json("User was updated");
+   } catch (error) {
+      console.error(error.message); 
+   } 
+}
+)
+
 //delete a user
+app.delete("/users/:id", async(req,res) => {
+    try {
+       const {id} = req.params;
+       const deleteUser = await pool.query("DELETE FROM musician WHERE username = $1",
+         [id]
+       );
+       res.json("User was deleted");
+    } catch (err) {
+        console.error(err.message);
+    }
+})
 
 // Tells server to listen on port 5000 for connections.                       
 // Callback function is used to indicated server has started.

@@ -91,7 +91,7 @@ app.delete("/users/:id", async(req,res) => {
 
 // Tells server to listen on port 5000 for connections.                       
 // Callback function is used to indicated server has started.
-app.listen(5500, () => {
-    console.log("server has started on port 5500");
+app.listen(5000, () => {
+    console.log("server has started on port 5000");
 });
 
